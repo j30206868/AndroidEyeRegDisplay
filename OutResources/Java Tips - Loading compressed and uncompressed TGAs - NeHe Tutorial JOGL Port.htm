@@ -1,0 +1,1432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0112)http://www.java-tips.org/index.php?option=com_content&task=view&id=1706&Itemid=29&mosmsg=Thanks+for+your+vote%21 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/beacon.js"></script><script type="text/javascript" async="" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/quant.js"></script>
+<title>Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port</title>
+<meta name="description" content="Java Tips -- Java, Java, and more Java, Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port">
+<meta name="keywords" content="java, tip, tutorial, game, news, application, library, book review, Other API Tips, JOGL, Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port">
+<meta name="Generator" content="Joomla! - Copyright (C) 2005 - 2007 Open Source Matters. All rights reserved. JoomSEF SEO by Artio (http://www.artio.net).">
+<meta name="robots" content="index, follow">
+<script type="text/javascript" async="" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/saved_resource"></script><script type="text/javascript" async="" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/luminate.min.js"></script><script async="" type="text/javascript" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/ca-pub-6304269038762493.js"></script><script type="text/javascript" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/mootools.js"></script>
+<script type="text/javascript" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/utils.js"></script>
+<script type="text/javascript" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/embed.js"></script>
+<script type="text/javascript">
+ jceutils.config.convert=0;
+ jceutils.config.fadespeed=500;
+ jceutils.config.scalespeed=500;
+ jceutils.config.pngfix=0;
+ jceutils.config.pngfix_id='_trans';
+ jceutils.config.tipclass='tooltip';
+</script>
+<link href="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/jcebox.css" rel="stylesheet" type="text/css" media="all">
+<!--<base href="http://www.java-tips.org/">--><base href=".">
+	<link rel="shortcut icon" href="http://www.java-tips.org/images/favicon.ico">
+	
+<meta name="verify-v1" content="vN3UVVCLT9CLCthSHUUQTeSSRQlru/LSUnIwM1XxKxE=">
+<meta name="verify-v1" content="qiQPGDFyhn+e/UirJDllUVkZogy+dFaDd/qYAFnlxfQ=">
+
+
+
+<!-- PLACE IN THE HEAD OF YOUR HTML PAGE -->
+
+<script type="text/javascript" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/player-a2.js"></script>
+<script language="javascript" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/companions.js"></script>
+<script language="javascript"> lrCompanionPurge["300x250"] = true; </script>
+
+
+<script language="JavaScript" type="text/javascript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+</script>
+
+<link href="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/template_css.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="http://www.java-tips.org/images/favicon.ico">
+<script type="text/javascript" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/beacon.js"></script><script type="text/javascript" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/saved_resource(1)"></script></head>
+<body>
+<table border="0" align="center" cellpadding="0" cellspacing="0" width="1000">
+<tbody><tr>
+<td width="980" height="30" valign="top">
+<table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td><table width="100%" border="0" valign="bottom" align="center" cellpadding="0" cellspacing="0">
+        <tbody><tr height="152">
+          <td width="351" height="152" style="background-repeat: repeat-y;" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/left_back.png"><div align="left" height="152" valign="bottom"><img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/leftlogo.jpg" width="351" height="152" alt="java left logo"> </div></td>
+          <td height="152"><div align="center" height="152" valign="bottom"><img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/mid.jpg" width="100%" height="152" alt="java middle logo"> </div></td>
+          <td width="428" height="152" align="right" style="background-repeat: repeat-y;background-position:  right;" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/right_back.png" alt="java right back logo"><div align="right" height="152" valign="bottom"><img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/right.jpg" width="428" height="152" alt="java right logo"> </div></td>
+        </tr>
+      </tbody></table></td>
+  </tr>
+  <tr>
+    <td><div align="left">
+        <table width="980" border="0" cellspacing="0" cellpadding="0">
+          <tbody><tr valign="middle">
+            <td width="20" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/left_back.png">&nbsp;</td>
+            <td>
+
+<div align="center">	      
+<!-- begin ad tag (tile=1) -->
+
+<div id="div-gpt-ad-2803617656626-0">
+    <script type="text/javascript">
+       googletag.cmd.push(function() {
+         googletag.defineSlot('/8456/IDG.Java-Tips.com_Homepage', [300,250],'div-gpt-ad-2803617656626-0')
+           .addService(googletag.pubads())
+           .setTargeting("pos", "ATF")
+           .setTargeting("URL", encodeURIComponent(window.location));
+         googletag.enableServices();
+         googletag.display('div-gpt-ad-2803617656626-0');
+       });
+    </script> 
+</div>
+
+<!-- End ad tag -->
+</div>              
+
+	      <br>
+              <span class="pathway"><a href="http://www.java-tips.org/index.php" class="pathway">Home</a> <img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/arrow.png" alt="arrow"> <a href="http://www.java-tips.org/other-api-tips/" class="pathway">Other API Tips</a> <img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/arrow.png" alt="arrow"> <a href="http://www.java-tips.org/other-api-tips/jogl/" class="pathway">JOGL</a> <img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/arrow.png" alt="arrow">   Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port </span>              <br>
+              </td>
+
+
+            <td width="20" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/right_back.png">&nbsp;</td>
+          </tr>
+
+
+        </tbody></table>
+      </div></td>
+  </tr>
+
+</tbody></table>
+
+
+<table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td width="20" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/left_back.png">&nbsp;</td>
+    <td width="180" valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+      </table><table width="100%" border="0" cellpadding="1" cellspacing="1">
+        <tbody><tr>
+          <td><table width="100%" border="0" cellpadding="1" cellspacing="1">
+              <tbody><tr>
+                <td>		<table cellpadding="0" cellspacing="0" class="moduletable">
+				<tbody><tr>
+			<td>
+							</td>
+		</tr>
+		</tbody></table>
+				<table cellpadding="0" cellspacing="0" class="moduletable_spaced">
+					<tbody><tr>
+				<th valign="top">
+					Main Menu				</th>
+			</tr>
+					<tr>
+			<td>
+				
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr align="left"><td><a href="http://www.java-tips.org/index.html" class="mainlevel">Home</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/java-tutorials/tutorials/" class="mainlevel">Java Tutorials</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/java-book-reviews/books/" class="mainlevel">Book Reviews</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/java-se-tips/" class="mainlevel">Java SE Tips</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/java-me-tips/" class="mainlevel">Java ME Tips</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/java-ee-tips/" class="mainlevel">Java EE Tips</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/other-api-tips/" class="mainlevel" id="active_menu">Other API Tips</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/java-applications/" class="mainlevel">Java Applications</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/java-libraries/" class="mainlevel">Java Libraries</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/java-games/" class="mainlevel">Java Games</a></td></tr>
+</tbody></table>			</td>
+		</tr>
+		</tbody></table>
+				<table cellpadding="0" cellspacing="0" class="moduletable">
+					<tbody><tr>
+				<th valign="top">
+					Java Network				</th>
+			</tr>
+					<tr>
+			<td>
+				
+<!-- Java Network -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+<tbody><tr align="left">
+<td> <a href="http://www.java-forums.org/forum.php" class="mainlevel" id="active_menu">Java Forums</a><br></td>
+</tr>
+
+<tr align="left">
+<td> <a href="http://www.java-forums.org/blogs/all/" class="mainlevel" id="active_menu">Java Blog</a><br></td>
+</tr>
+
+</tbody></table>
+
+<br>
+
+<!-- Java Network -->
+
+
+
+			</td>
+		</tr>
+		</tbody></table>
+				<table cellpadding="0" cellspacing="0" class="moduletable">
+				<tbody><tr>
+			<td>
+				
+<p> </p>
+
+
+
+<p> </p>
+<p> </p>
+
+<center>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-6304269038762493";
+google_ad_width = 200;
+google_ad_height = 90;
+google_ad_format = "200x90_0ads_al";
+//2007-01-22: javatips-adlinks
+google_ad_channel = "7267226506";
+google_color_border = "336699";
+google_color_bg = "FFFFFF";
+google_color_link = "000000";
+google_color_text = "000000";
+google_color_url = "008000";
+//--></script>
+<script type="text/javascript" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/show_ads.js">
+</script><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:200px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:200px;background-color:transparent"><iframe width="200" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+
+
+<br>
+<br>
+<br>
+
+<!-- begin ad tag (tile=3) -->
+<script language="JavaScript" type="text/javascript">
+if (typeof ord=='undefined') {ord=Math.random()*10000000000000000;}
+document.write('<script language="JavaScript" src="http://a.collective-media.net/adj/idgt.javatips/article_above;sec=article;fold=above;tile=3;sz=160x600;ord=' + ord + '?" type="text/javascript"><\/script>');
+</script><script language="JavaScript" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/article_above;sec=article;fold=above;tile=3;sz=160x600" type="text/javascript"></script><noscript>&lt;a href="http://a.collective-media.net/jump/idgt.javatips/article_above;sec=article;fold=above;tile=3;sz=160x600;ord=123456789?" target="_blank"&gt;&lt;img src="http://a.collective-media.net/ad/idgt.javatips/article_above;sec=article;fold=above;tile=3;sz=160x600;ord=123456789?" width="160" height="600" border="0" alt=""&gt;&lt;/a&gt;</noscript>
+<!-- End ad tag -->
+
+</center>
+
+<p> </p>
+
+
+			</td>
+		</tr>
+		</tbody></table>
+				<table cellpadding="0" cellspacing="0" class="moduletable_spaced">
+					<tbody><tr>
+				<th valign="top">
+					Most Visited Tips				</th>
+			</tr>
+					<tr>
+			<td>
+				
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr align="left"><td><a href="http://www.java-tips.org/mostvisited/1.html" class="mainlevel">Java SE Tips</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/mostvisited/1-2.html" class="mainlevel">Java ME Tips</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/mostvisited/1-3.html" class="mainlevel">Java EE Tips</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/mostvisited/1-4.html" class="mainlevel">Other API Tips</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/mostvisited/1-5.html" class="mainlevel">Java Applications</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/mostvisited/1-6.html" class="mainlevel">Java Libraries</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/mostvisited/1-7.html" class="mainlevel">Java Games</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/mostvisited/1-8.html" class="mainlevel">Book Reviews</a></td></tr>
+</tbody></table>			</td>
+		</tr>
+		</tbody></table>
+				<table cellpadding="0" cellspacing="0" class="moduletable_spaced">
+					<tbody><tr>
+				<th valign="top">
+					Top Rated Tips				</th>
+			</tr>
+					<tr>
+			<td>
+				
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr align="left"><td><a href="http://www.java-tips.org/mostvisited/2.html" class="mainlevel">Java SE Tips</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/mostvisited/2-2.html" class="mainlevel">Java ME Tips</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/mostvisited/2-3.html" class="mainlevel">Java EE Tips</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/mostvisited/2-4.html" class="mainlevel">Other API Tips</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/mostvisited/2-5.html" class="mainlevel">Java Applications</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/mostvisited/2-6.html" class="mainlevel">Java Libraries</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/mostvisited/2-7.html" class="mainlevel">Java Games</a></td></tr>
+<tr align="left"><td><a href="http://www.java-tips.org/mostvisited/2-8.html" class="mainlevel">Book Reviews</a></td></tr>
+</tbody></table>			</td>
+		</tr>
+		</tbody></table>
+				<table cellpadding="0" cellspacing="0" class="moduletable">
+				<tbody><tr>
+			<td>
+				<center>
+
+<br>
+
+<!-- begin ad tag (tile=6) -->
+<script language="JavaScript" type="text/javascript">
+if (typeof ord=='undefined') {ord=Math.random()*10000000000000000;}
+document.write('<script language="JavaScript" src="http://a.collective-media.net/adj/idgt.javatips/article_below;sec=article;fold=below;tile=6;sz=160x600;ord=' + ord + '?" type="text/javascript"><\/script>');
+</script><script language="JavaScript" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/article_below;sec=article;fold=below;tile=6;sz=160x600" type="text/javascript"></script><noscript>&lt;a href="http://a.collective-media.net/jump/idgt.javatips/article_below;sec=article;fold=below;tile=6;sz=160x600;ord=123456789?" target="_blank"&gt;&lt;img src="http://a.collective-media.net/ad/idgt.javatips/article_below;sec=article;fold=below;tile=6;sz=160x600;ord=123456789?" width="160" height="600" border="0" alt=""&gt;&lt;/a&gt;</noscript>
+<!-- End ad tag -->
+
+<br>
+
+</center>
+
+
+			</td>
+		</tr>
+		</tbody></table>
+				<table cellpadding="0" cellspacing="0" class="moduletable_spaced">
+					<tbody><tr>
+				<th valign="top">
+					Statistics				</th>
+			</tr>
+					<tr>
+			<td>
+				<table width="100%"><tbody><tr><td>Registered Users: </td><td align="right">4084</td></tr><tr><td>Java SE Tips:</td><td align="right"> 614</td></tr><tr><td>Java ME Tips:</td><td align="right"> 202</td></tr><tr><td>Java EE Tips:</td><td align="right"> 183</td></tr><tr><td>Other API Tips:</td><td align="right"> 779</td></tr><tr><td>Java Applications:</td><td align="right"> 298</td></tr><tr><td>Java Libraries:</td><td align="right"> 209</td></tr><tr><td>Java Games:</td><td align="right"> 16</td></tr><tr><td>Book Reviews: </td><td align="right"></td></tr></tbody></table>			</td>
+		</tr>
+		</tbody></table>
+		                </td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody></table></td>
+        </tr>
+        <tr>
+          <td align="right" valign="top">&nbsp;</td>
+        </tr>
+      </tbody></table>
+      </td>
+
+      <td valign="top">&nbsp;</td>
+        <td valign="top">
+				
+<div class="message">Thanks for your vote!</div>				<table class="contentpaneopen">
+			<tbody><tr>
+								<td class="contentheading" width="100%">
+					Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port									</td>
+							<td align="right" width="100%" class="buttonheading">
+				<a href="http://www.java-tips.org/index2.php?option=com_content&task=emailform&id=1706&itemid=29" target="_blank" onclick="window.open(&#39;http://www.java-tips.org/index2.php?option=com_content&amp;task=emailform&amp;id=1706&amp;itemid=29&#39;,&#39;win2&#39;,&#39;status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=400,height=250,directories=no,location=no&#39;); return false;" title="E-mail">
+					<img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/emailButton.png" alt="E-mail" name="E-mail" align="middle" border="0"></a>
+			</td>
+						</tr>
+			</tbody></table>
+			<form method="post" action="http://www.java-tips.org/index.php"><span class="content_rating">User Rating:<img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/rating_star.png" alt="" align="middle" border="0"><img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/rating_star.png" alt="" align="middle" border="0"><img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/rating_star.png" alt="" align="middle" border="0"><img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/rating_star.png" alt="" align="middle" border="0"><img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/rating_star.png" alt="" align="middle" border="0">&nbsp;/&nbsp;10</span>
+<br>
+<span class="content_vote">Poor<input type="radio" alt="vote 1 star" name="user_rating" value="1"><input type="radio" alt="vote 2 star" name="user_rating" value="2"><input type="radio" alt="vote 3 star" name="user_rating" value="3"><input type="radio" alt="vote 4 star" name="user_rating" value="4"><input type="radio" alt="vote 5 star" name="user_rating" value="5" checked="checked">Best&nbsp;<input class="button" type="submit" name="submit_vote" value="Rate"><input type="hidden" name="task" value="vote"><input type="hidden" name="pop" value="0"><input type="hidden" name="option" value="com_content"><input type="hidden" name="Itemid" value="29"><input type="hidden" name="cid" value="1706"><input type="hidden" name="url" value="/index.php?option=com_content&amp;task=view&amp;id=1706&amp;Itemid=29&amp;mosmsg=Thanks+for+your+vote%21"></span></form>
+		<table class="contentpaneopen">
+				<tbody><tr>
+			<td valign="top" colspan="2">
+				<p>This example shows how to load both uncompressed and RLE compressed TGA images.</p>
+
+<p>This is the Java port of the one of the <a href="http://nehe.gamedev.net/">NeHe OpenGL tutorials</a>.</p> 
+
+<p>You can get complete IntelliJ IDEA project structure (all source, resources, build script, �) by downloading the source distribution from <a href="http://www.java-tips.org/images/stories/tips/others/jogl/170606/nehe.zip">here</a>.</p>
+
+<p>The original post of the programmer who ported the examples can be found <a href="http://pepijn.fab4.be/?page_id=34">here</a>.</p>
+
+
+<br>
+<img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/33.jpg" width="640" height="480" hspace="6" alt="Image" title="Image" border="0">
+<br><br>
+
+
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tbody><tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#7f0055"><b>package&nbsp;</b></font><font color="#000000">demos.nehe.lesson33;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">demos.common.GLDisplay;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#3f5fbf">/**</font><br>
+<font color="#ffffff">&nbsp;</font><font color="#3f5fbf">*&nbsp;</font><font color="#7f9fbf">@author&nbsp;</font><font color="#3f5fbf">Pepijn&nbsp;Van&nbsp;Eeckhoudt</font><br>
+<font color="#ffffff">&nbsp;</font><font color="#3f5fbf">*/</font><br>
+<font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">Lesson33&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">main</font><font color="#000000">(</font><font color="#000000">String</font><font color="#000000">[]&nbsp;</font><font color="#000000">args</font><font color="#000000">)&nbsp;{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">GLDisplay&nbsp;neheGLDisplay&nbsp;=&nbsp;GLDisplay.createGLDisplay</font><font color="#000000">(</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#2a00ff">"Lesson&nbsp;33:&nbsp;Loading&nbsp;TGA&nbsp;files"</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Renderer&nbsp;renderer&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Renderer</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">neheGLDisplay.addGLEventListener</font><font color="#000000">(</font><font color="#000000">renderer</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">neheGLDisplay.start</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>package&nbsp;</b></font><font color="#000000">demos.nehe.lesson33;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">com.sun.opengl.util.BufferUtil;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">java.nio.ByteBuffer;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>class&nbsp;</b></font><font color="#000000">TGA&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;First&nbsp;6&nbsp;Useful&nbsp;Bytes&nbsp;From&nbsp;The&nbsp;Header</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ByteBuffer&nbsp;header&nbsp;=&nbsp;BufferUtil.newByteBuffer</font><font color="#000000">(</font><font color="#990000">6</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Holds&nbsp;Number&nbsp;Of&nbsp;Bytes&nbsp;Per&nbsp;Pixel&nbsp;Used&nbsp;In&nbsp;The&nbsp;TGA&nbsp;File</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">bytesPerPixel;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Used&nbsp;To&nbsp;Store&nbsp;The&nbsp;Image&nbsp;Size&nbsp;When&nbsp;Setting&nbsp;Aside&nbsp;Ram</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">imageSize;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">temp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Temporary&nbsp;Variable</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">type;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">height;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;height&nbsp;of&nbsp;Image</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">width;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;width&nbsp;ofImage</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">bpp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Bits&nbsp;Per&nbsp;Pixel</font><br>
+<font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>package&nbsp;</b></font><font color="#000000">demos.nehe.lesson33;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>class&nbsp;</b></font><font color="#000000">TGAHeader&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>byte</b></font><font color="#000000">[]&nbsp;</font><font color="#000000">Header&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#7f0055"><b>byte</b></font><font color="#000000">[</font><font color="#990000">12</font><font color="#000000">]</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;TGA&nbsp;File&nbsp;Header</font><br>
+<font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>package&nbsp;</b></font><font color="#000000">demos.nehe.lesson33;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">com.sun.opengl.util.BufferUtil;</font><br>
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">demos.common.ResourceRetriever;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">javax.media.opengl.GL;</font><br>
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">java.io.IOException;</font><br>
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">java.nio.ByteBuffer;</font><br>
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">java.nio.channels.Channels;</font><br>
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">java.nio.channels.ReadableByteChannel;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>class&nbsp;</b></font><font color="#000000">TGALoader&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">ByteBuffer&nbsp;uTGAcompare;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Uncompressed&nbsp;TGA&nbsp;Header</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">ByteBuffer&nbsp;cTGAcompare;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Compressed&nbsp;TGA&nbsp;Header</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>static&nbsp;</b></font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>byte</b></font><font color="#000000">[]&nbsp;</font><font color="#000000">uncompressedTgaHeader&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#7f0055"><b>byte</b></font><font color="#000000">[]{</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">2</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">}</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>byte</b></font><font color="#000000">[]&nbsp;</font><font color="#000000">compressedTgaHeader&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#7f0055"><b>byte</b></font><font color="#000000">[]{</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">10</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">}</font><font color="#000000">;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">uTGAcompare&nbsp;=&nbsp;BufferUtil.newByteBuffer</font><font color="#000000">(</font><font color="#000000">uncompressedTgaHeader.length</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">uTGAcompare.put</font><font color="#000000">(</font><font color="#000000">uncompressedTgaHeader</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Uncompressed&nbsp;TGA&nbsp;Header</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">uTGAcompare.flip</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">cTGAcompare&nbsp;=&nbsp;BufferUtil.newByteBuffer</font><font color="#000000">(</font><font color="#000000">compressedTgaHeader.length</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">cTGAcompare.put</font><font color="#000000">(</font><font color="#000000">compressedTgaHeader</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Compressed&nbsp;TGA&nbsp;Header</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">cTGAcompare.flip</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Load&nbsp;a&nbsp;TGA&nbsp;file</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">loadTGA</font><font color="#000000">(</font><font color="#000000">Texture&nbsp;texture,&nbsp;String&nbsp;filename</font><font color="#000000">)&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">IOException&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ByteBuffer&nbsp;header&nbsp;=&nbsp;BufferUtil.newByteBuffer</font><font color="#000000">(</font><font color="#990000">12</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ReadableByteChannel&nbsp;in&nbsp;=&nbsp;Channels.newChannel</font><font color="#000000">(</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ResourceRetriever.getResourceAsStream</font><font color="#000000">(</font><font color="#000000">filename</font><font color="#000000">))</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">readBuffer</font><font color="#000000">(</font><font color="#000000">in,&nbsp;header</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;See&nbsp;if&nbsp;header&nbsp;matches&nbsp;the&nbsp;predefined&nbsp;header&nbsp;of</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">uTGAcompare.equals</font><font color="#000000">(</font><font color="#000000">header</font><font color="#000000">))&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;an&nbsp;Uncompressed&nbsp;TGA&nbsp;image</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;If&nbsp;so,&nbsp;jump&nbsp;to&nbsp;Uncompressed&nbsp;TGA&nbsp;loading&nbsp;code</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">loadUncompressedTGA</font><font color="#000000">(</font><font color="#000000">texture,&nbsp;in</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#7f0055"><b>else&nbsp;if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">cTGAcompare.equals</font><font color="#000000">(</font><font color="#000000">header</font><font color="#000000">))&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;See&nbsp;if&nbsp;header&nbsp;matches&nbsp;the&nbsp;predefined&nbsp;header&nbsp;of</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;an&nbsp;RLE&nbsp;compressed&nbsp;TGA&nbsp;image</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;If&nbsp;so,&nbsp;jump&nbsp;to&nbsp;Compressed&nbsp;TGA&nbsp;loading&nbsp;code</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">loadCompressedTGA</font><font color="#000000">(</font><font color="#000000">texture,&nbsp;in</font><font color="#000000">)</font><font color="#000000">;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#7f0055"><b>else&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></font><font color="#3f7f5f">//&nbsp;If&nbsp;header&nbsp;matches&nbsp;neither&nbsp;type</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">in.close</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Display&nbsp;an&nbsp;error</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>throw&nbsp;new&nbsp;</b></font><font color="#000000">IOException</font><font color="#000000">(</font><font color="#2a00ff">"TGA&nbsp;file&nbsp;be&nbsp;type&nbsp;2&nbsp;or&nbsp;type&nbsp;10&nbsp;"</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">readBuffer</font><font color="#000000">(</font><font color="#000000">ReadableByteChannel&nbsp;in,&nbsp;ByteBuffer&nbsp;buffer</font><font color="#000000">)&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">IOException&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>while&nbsp;</b></font><font color="#000000">(</font><font color="#000000">buffer.hasRemaining</font><font color="#000000">())&nbsp;{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">in.read</font><font color="#000000">(</font><font color="#000000">buffer</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">buffer.flip</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">loadUncompressedTGA</font><font color="#000000">(</font><font color="#000000">Texture&nbsp;texture,&nbsp;ReadableByteChannel&nbsp;in</font><font color="#000000">)&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">IOException&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Load&nbsp;an&nbsp;uncompressed&nbsp;TGA&nbsp;(note,&nbsp;much&nbsp;of&nbsp;this&nbsp;code&nbsp;is&nbsp;based&nbsp;on&nbsp;NeHe's</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;TGA&nbsp;Loading&nbsp;code&nbsp;nehe.gamedev.net)</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">TGA&nbsp;tga&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">TGA</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">readBuffer</font><font color="#000000">(</font><font color="#000000">in,&nbsp;tga.header</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Determine&nbsp;The&nbsp;TGA&nbsp;width&nbsp;&nbsp;(highbyte*256+lowbyte)</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.width&nbsp;=&nbsp;</font><font color="#000000">(</font><font color="#000000">unsignedByteToInt</font><font color="#000000">(</font><font color="#000000">tga.header.get</font><font color="#000000">(</font><font color="#990000">1</font><font color="#000000">))&nbsp;</font><font color="#000000">&lt;&lt;&nbsp;</font><font color="#990000">8</font><font color="#000000">)&nbsp;</font><font color="#000000">+&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">unsignedByteToInt</font><font color="#000000">(</font><font color="#000000">tga.header.get</font><font color="#000000">(</font><font color="#990000">0</font><font color="#000000">))</font><font color="#000000">;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Determine&nbsp;The&nbsp;TGA&nbsp;height&nbsp;&nbsp;(highbyte*256+lowbyte)</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.height&nbsp;=&nbsp;</font><font color="#000000">(</font><font color="#000000">unsignedByteToInt</font><font color="#000000">(</font><font color="#000000">tga.header.get</font><font color="#000000">(</font><font color="#990000">3</font><font color="#000000">))&nbsp;</font><font color="#000000">&lt;&lt;&nbsp;</font><font color="#990000">8</font><font color="#000000">)&nbsp;</font><font color="#000000">+&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">unsignedByteToInt</font><font color="#000000">(</font><font color="#000000">tga.header.get</font><font color="#000000">(</font><font color="#990000">2</font><font color="#000000">))</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Determine&nbsp;the&nbsp;bits&nbsp;per&nbsp;pixel</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.bpp&nbsp;=&nbsp;unsignedByteToInt</font><font color="#000000">(</font><font color="#000000">tga.header.get</font><font color="#000000">(</font><font color="#990000">4</font><font color="#000000">))</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">tga.width&nbsp;=&nbsp;texture.width;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Copy&nbsp;width&nbsp;into&nbsp;local&nbsp;structure</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">tga.height&nbsp;=&nbsp;texture.height;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Copy&nbsp;height&nbsp;into&nbsp;local&nbsp;structure</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">tga.bpp&nbsp;=&nbsp;texture.bpp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Copy&nbsp;BPP&nbsp;into&nbsp;local&nbsp;structure</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">((</font><font color="#000000">texture.width&nbsp;&lt;=&nbsp;</font><font color="#990000">0</font><font color="#000000">)&nbsp;</font><font color="#000000">||&nbsp;</font><font color="#000000">(</font><font color="#000000">texture.height&nbsp;&lt;=&nbsp;</font><font color="#990000">0</font><font color="#000000">)&nbsp;</font><font color="#000000">||&nbsp;</font><font color="#000000">((</font><font color="#000000">texture.bpp&nbsp;!=&nbsp;</font><font color="#990000">24</font><font color="#000000">)&nbsp;</font><font color="#000000">&amp;&amp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">(</font><font color="#000000">texture.bpp&nbsp;!=&nbsp;</font><font color="#990000">32</font><font color="#000000">)))&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Make&nbsp;sure&nbsp;all&nbsp;information&nbsp;is&nbsp;valid</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>throw&nbsp;new&nbsp;</b></font><font color="#000000">IOException</font><font color="#000000">(</font><font color="#2a00ff">"Invalid&nbsp;texture&nbsp;information"</font><font color="#000000">)</font><font color="#000000">;&nbsp;</font><font color="#3f7f5f">//&nbsp;Display&nbsp;Error</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">texture.bpp&nbsp;==&nbsp;</font><font color="#990000">24</font><font color="#000000">)&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;If&nbsp;the&nbsp;BPP&nbsp;of&nbsp;the&nbsp;image&nbsp;is&nbsp;24...</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.type&nbsp;=&nbsp;GL.GL_RGB;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Set&nbsp;Image&nbsp;type&nbsp;to&nbsp;GL_RGB</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>else&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></font><font color="#3f7f5f">//&nbsp;Else&nbsp;if&nbsp;its&nbsp;32&nbsp;BPP</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.type&nbsp;=&nbsp;GL.GL_RGBA;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Set&nbsp;image&nbsp;type&nbsp;to&nbsp;GL_RGBA</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">tga.bytesPerPixel&nbsp;=&nbsp;</font><font color="#000000">(</font><font color="#000000">tga.bpp&nbsp;/&nbsp;</font><font color="#990000">8</font><font color="#000000">)</font><font color="#000000">;&nbsp;</font><font color="#3f7f5f">//&nbsp;Compute&nbsp;the&nbsp;number&nbsp;of&nbsp;BYTES&nbsp;per&nbsp;pixel</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Compute&nbsp;the&nbsp;total&nbsp;amout&nbsp;ofmemory&nbsp;needed&nbsp;to&nbsp;store&nbsp;data</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">tga.imageSize&nbsp;=&nbsp;</font><font color="#000000">(</font><font color="#000000">tga.bytesPerPixel&nbsp;*&nbsp;tga.width&nbsp;*&nbsp;tga.height</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Allocate&nbsp;that&nbsp;much&nbsp;memory</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.imageData&nbsp;=&nbsp;BufferUtil.newByteBuffer</font><font color="#000000">(</font><font color="#000000">tga.imageSize</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">readBuffer</font><font color="#000000">(</font><font color="#000000">in,&nbsp;texture.imageData</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>for&nbsp;</b></font><font color="#000000">(</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">cswap&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;&nbsp;cswap&nbsp;&lt;&nbsp;tga.imageSize;&nbsp;cswap&nbsp;+=&nbsp;tga.bytesPerPixel</font><font color="#000000">)&nbsp;{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>byte&nbsp;</b></font><font color="#000000">temp&nbsp;=&nbsp;texture.imageData.get</font><font color="#000000">(</font><font color="#000000">cswap</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.imageData.put</font><font color="#000000">(</font><font color="#000000">cswap,&nbsp;texture.imageData.get</font><font color="#000000">(</font><font color="#000000">cswap&nbsp;+&nbsp;</font><font color="#990000">2</font><font color="#000000">))</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.imageData.put</font><font color="#000000">(</font><font color="#000000">cswap&nbsp;+&nbsp;</font><font color="#990000">2</font><font color="#000000">,&nbsp;temp</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">loadCompressedTGA</font><font color="#000000">(</font><font color="#000000">Texture&nbsp;texture,&nbsp;ReadableByteChannel&nbsp;fTGA</font><font color="#000000">)&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">IOException&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Load&nbsp;COMPRESSED&nbsp;TGAs</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">TGA&nbsp;tga&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">TGA</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">readBuffer</font><font color="#000000">(</font><font color="#000000">fTGA,&nbsp;tga.header</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Determine&nbsp;The&nbsp;TGA&nbsp;width&nbsp;&nbsp;(highbyte*256+lowbyte)</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.width&nbsp;=&nbsp;</font><font color="#000000">(</font><font color="#000000">unsignedByteToInt</font><font color="#000000">(</font><font color="#000000">tga.header.get</font><font color="#000000">(</font><font color="#990000">1</font><font color="#000000">))&nbsp;</font><font color="#000000">&lt;&lt;&nbsp;</font><font color="#990000">8</font><font color="#000000">)&nbsp;</font><font color="#000000">+&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">unsignedByteToInt</font><font color="#000000">(</font><font color="#000000">tga.header.get</font><font color="#000000">(</font><font color="#990000">0</font><font color="#000000">))</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Determine&nbsp;The&nbsp;TGA&nbsp;height&nbsp;&nbsp;(highbyte*256+lowbyte)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.height&nbsp;=&nbsp;</font><font color="#000000">(</font><font color="#000000">unsignedByteToInt</font><font color="#000000">(</font><font color="#000000">tga.header.get</font><font color="#000000">(</font><font color="#990000">3</font><font color="#000000">))&nbsp;</font><font color="#000000">&lt;&lt;&nbsp;</font><font color="#990000">8</font><font color="#000000">)&nbsp;</font><font color="#000000">+&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">unsignedByteToInt</font><font color="#000000">(</font><font color="#000000">tga.header.get</font><font color="#000000">(</font><font color="#990000">2</font><font color="#000000">))</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.bpp&nbsp;=&nbsp;unsignedByteToInt</font><font color="#000000">(</font><font color="#000000">tga.header.get</font><font color="#000000">(</font><font color="#990000">4</font><font color="#000000">))</font><font color="#000000">;&nbsp;</font><font color="#3f7f5f">//&nbsp;Determine&nbsp;Bits&nbsp;Per&nbsp;Pixel</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">tga.width&nbsp;=&nbsp;texture.width;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Copy&nbsp;width&nbsp;to&nbsp;local&nbsp;structure</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">tga.height&nbsp;=&nbsp;texture.height;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Copy&nbsp;width&nbsp;to&nbsp;local&nbsp;structure</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">tga.bpp&nbsp;=&nbsp;texture.bpp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Copy&nbsp;width&nbsp;to&nbsp;local&nbsp;structure</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">((</font><font color="#000000">texture.width&nbsp;&lt;=&nbsp;</font><font color="#990000">0</font><font color="#000000">)&nbsp;</font><font color="#000000">||&nbsp;</font><font color="#000000">(</font><font color="#000000">texture.height&nbsp;&lt;=&nbsp;</font><font color="#990000">0</font><font color="#000000">)&nbsp;</font><font color="#000000">||&nbsp;</font><font color="#000000">((</font><font color="#000000">texture.bpp&nbsp;!=&nbsp;</font><font color="#990000">24</font><font color="#000000">)&nbsp;</font><font color="#000000">&amp;&amp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">(</font><font color="#000000">texture.bpp&nbsp;!=&nbsp;</font><font color="#990000">32</font><font color="#000000">)))&nbsp;&nbsp;</font><font color="#3f7f5f">//Make&nbsp;sure&nbsp;all&nbsp;texture&nbsp;info&nbsp;is&nbsp;ok</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;If&nbsp;it&nbsp;isnt...Display&nbsp;error</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>throw&nbsp;new&nbsp;</b></font><font color="#000000">IOException</font><font color="#000000">(</font><font color="#2a00ff">"Invalid&nbsp;texture&nbsp;information"</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">texture.bpp&nbsp;==&nbsp;</font><font color="#990000">24</font><font color="#000000">)&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;If&nbsp;the&nbsp;BPP&nbsp;of&nbsp;the&nbsp;image&nbsp;is&nbsp;24...</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.type&nbsp;=&nbsp;GL.GL_RGB;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Set&nbsp;Image&nbsp;type&nbsp;to&nbsp;GL_RGB</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>else&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></font><font color="#3f7f5f">//&nbsp;Else&nbsp;if&nbsp;its&nbsp;32&nbsp;BPP</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.type&nbsp;=&nbsp;GL.GL_RGBA;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Set&nbsp;image&nbsp;type&nbsp;to&nbsp;GL_RGBA</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">tga.bytesPerPixel&nbsp;=&nbsp;</font><font color="#000000">(</font><font color="#000000">tga.bpp&nbsp;/&nbsp;</font><font color="#990000">8</font><font color="#000000">)</font><font color="#000000">;&nbsp;</font><font color="#3f7f5f">//&nbsp;Compute&nbsp;BYTES&nbsp;per&nbsp;pixel</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Compute&nbsp;amout&nbsp;of&nbsp;memory&nbsp;needed&nbsp;to&nbsp;store&nbsp;image</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">tga.imageSize&nbsp;=&nbsp;</font><font color="#000000">(</font><font color="#000000">tga.bytesPerPixel&nbsp;*&nbsp;tga.width&nbsp;*&nbsp;tga.height</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Allocate&nbsp;that&nbsp;much&nbsp;memory</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.imageData&nbsp;=&nbsp;BufferUtil.newByteBuffer</font><font color="#000000">(</font><font color="#000000">tga.imageSize</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.imageData.position</font><font color="#000000">(</font><font color="#990000">0</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.imageData.limit</font><font color="#000000">(</font><font color="#000000">texture.imageData.capacity</font><font color="#000000">())</font><font color="#000000">;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">pixelcount&nbsp;=&nbsp;tga.height&nbsp;*&nbsp;tga.width;&nbsp;</font><font color="#3f7f5f">//&nbsp;Nuber&nbsp;of&nbsp;pixels&nbsp;in&nbsp;the&nbsp;image</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">currentpixel&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Current&nbsp;pixel&nbsp;being&nbsp;read</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">currentbyte&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Current&nbsp;byte</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Storage&nbsp;for&nbsp;1&nbsp;pixel</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ByteBuffer&nbsp;colorbuffer&nbsp;=&nbsp;BufferUtil.newByteBuffer</font><font color="#000000">(</font><font color="#000000">tga.bytesPerPixel</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>do&nbsp;</b></font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">chunkheader;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Storage&nbsp;for&nbsp;"chunk"&nbsp;header</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>try&nbsp;</b></font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ByteBuffer&nbsp;chunkHeaderBuffer&nbsp;=&nbsp;ByteBuffer.allocate</font><font color="#000000">(</font><font color="#990000">1</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">fTGA.read</font><font color="#000000">(</font><font color="#000000">chunkHeaderBuffer</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">chunkHeaderBuffer.flip</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">chunkheader&nbsp;=&nbsp;unsignedByteToInt</font><font color="#000000">(</font><font color="#000000">chunkHeaderBuffer.get</font><font color="#000000">())</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#7f0055"><b>catch&nbsp;</b></font><font color="#000000">(</font><font color="#000000">IOException&nbsp;e</font><font color="#000000">)&nbsp;{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>throw&nbsp;new&nbsp;</b></font><font color="#000000">IOException</font><font color="#000000">(</font><font color="#2a00ff">"Could&nbsp;not&nbsp;read&nbsp;RLE&nbsp;header"</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Display&nbsp;Error</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;If&nbsp;the&nbsp;ehader&nbsp;is&nbsp;&lt;&nbsp;128,&nbsp;it&nbsp;means&nbsp;the&nbsp;that&nbsp;is&nbsp;the&nbsp;number&nbsp;of&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;RAW&nbsp;color&nbsp;packets&nbsp;minus&nbsp;1</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">chunkheader&nbsp;&lt;&nbsp;</font><font color="#990000">128</font><font color="#000000">)&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;that&nbsp;follow&nbsp;the&nbsp;header</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">chunkheader++;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;add&nbsp;1&nbsp;to&nbsp;get&nbsp;number&nbsp;of&nbsp;following&nbsp;color&nbsp;values</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Read&nbsp;RAW&nbsp;color&nbsp;values</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>for&nbsp;</b></font><font color="#000000">(</font><font color="#7f0055"><b>short&nbsp;</b></font><font color="#000000">counter&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;&nbsp;counter&nbsp;&lt;&nbsp;chunkheader;&nbsp;counter++</font><font color="#000000">)&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">readBuffer</font><font color="#000000">(</font><font color="#000000">fTGA,&nbsp;colorbuffer</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;write&nbsp;to&nbsp;memory</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Flip&nbsp;R&nbsp;and&nbsp;B&nbsp;vcolor&nbsp;values&nbsp;around&nbsp;in&nbsp;the&nbsp;process</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.imageData.put</font><font color="#000000">(</font><font color="#000000">currentbyte,&nbsp;colorbuffer.get</font><font color="#000000">(</font><font color="#990000">2</font><font color="#000000">))</font><font color="#000000">;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.imageData.put</font><font color="#000000">(</font><font color="#000000">currentbyte&nbsp;+&nbsp;</font><font color="#990000">1</font><font color="#000000">,&nbsp;colorbuffer.get</font><font color="#000000">(</font><font color="#990000">1</font><font color="#000000">))</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.imageData.put</font><font color="#000000">(</font><font color="#000000">currentbyte&nbsp;+&nbsp;</font><font color="#990000">2</font><font color="#000000">,&nbsp;colorbuffer.get</font><font color="#000000">(</font><font color="#990000">0</font><font color="#000000">))</font><font color="#000000">;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">tga.bytesPerPixel&nbsp;==&nbsp;</font><font color="#990000">4</font><font color="#000000">)&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;if&nbsp;its&nbsp;a&nbsp;32&nbsp;bpp&nbsp;image</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;copy&nbsp;the&nbsp;4th&nbsp;byte</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.imageData.put</font><font color="#000000">(</font><font color="#000000">currentbyte&nbsp;+&nbsp;</font><font color="#990000">3</font><font color="#000000">,&nbsp;colorbuffer.get</font><font color="#000000">(</font><font color="#990000">3</font><font color="#000000">))</font><font color="#000000">;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Increase&nbsp;thecurrent&nbsp;byte&nbsp;by&nbsp;the&nbsp;number&nbsp;of&nbsp;bytes&nbsp;per&nbsp;pixel</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">currentbyte&nbsp;+=&nbsp;tga.bytesPerPixel;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">currentpixel++;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Increase&nbsp;current&nbsp;pixel&nbsp;by&nbsp;1</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Make&nbsp;sure&nbsp;we&nbsp;havent&nbsp;read&nbsp;too&nbsp;many&nbsp;pixels</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">currentpixel&nbsp;&gt;&nbsp;pixelcount</font><font color="#000000">)&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;if&nbsp;there&nbsp;is&nbsp;too&nbsp;many...&nbsp;Display&nbsp;an&nbsp;error!</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>throw&nbsp;new&nbsp;</b></font><font color="#000000">IOException</font><font color="#000000">(</font><font color="#2a00ff">"Too&nbsp;many&nbsp;pixels&nbsp;read"</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#7f0055"><b>else</b></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;chunkheader&nbsp;&gt;&nbsp;128&nbsp;RLE&nbsp;data,&nbsp;next&nbsp;color&nbsp;reapeated&nbsp;chunkheader&nbsp;-&nbsp;127&nbsp;times</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">chunkheader&nbsp;-=&nbsp;</font><font color="#990000">127</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Subteact&nbsp;127&nbsp;to&nbsp;get&nbsp;rid&nbsp;of&nbsp;the&nbsp;ID&nbsp;bit</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">readBuffer</font><font color="#000000">(</font><font color="#000000">fTGA,&nbsp;colorbuffer</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;copy&nbsp;the&nbsp;color&nbsp;into&nbsp;the&nbsp;image&nbsp;data&nbsp;as&nbsp;many&nbsp;times&nbsp;as&nbsp;dictated</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>for&nbsp;</b></font><font color="#000000">(</font><font color="#7f0055"><b>short&nbsp;</b></font><font color="#000000">counter&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;&nbsp;counter&nbsp;&lt;&nbsp;chunkheader;&nbsp;counter++</font><font color="#000000">)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;by&nbsp;the&nbsp;header</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.imageData.put</font><font color="#000000">(</font><font color="#000000">currentbyte,&nbsp;colorbuffer.get</font><font color="#000000">(</font><font color="#990000">2</font><font color="#000000">))</font><font color="#000000">;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.imageData.put</font><font color="#000000">(</font><font color="#000000">currentbyte&nbsp;+&nbsp;</font><font color="#990000">1</font><font color="#000000">,&nbsp;colorbuffer.get</font><font color="#000000">(</font><font color="#990000">1</font><font color="#000000">))</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.imageData.put</font><font color="#000000">(</font><font color="#000000">currentbyte&nbsp;+&nbsp;</font><font color="#990000">2</font><font color="#000000">,&nbsp;colorbuffer.get</font><font color="#000000">(</font><font color="#990000">0</font><font color="#000000">))</font><font color="#000000">;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">tga.bytesPerPixel&nbsp;==&nbsp;</font><font color="#990000">4</font><font color="#000000">)&nbsp;</font><font color="#3f7f5f">//&nbsp;if&nbsp;its&nbsp;a&nbsp;32&nbsp;bpp&nbsp;image</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;copy&nbsp;the&nbsp;4th&nbsp;byte</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture.imageData.put</font><font color="#000000">(</font><font color="#000000">currentbyte&nbsp;+&nbsp;</font><font color="#990000">3</font><font color="#000000">,&nbsp;colorbuffer.get</font><font color="#000000">(</font><font color="#990000">3</font><font color="#000000">))</font><font color="#000000">;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Increase&nbsp;current&nbsp;byte&nbsp;by&nbsp;the&nbsp;number&nbsp;of&nbsp;bytes&nbsp;per&nbsp;pixel</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">currentbyte&nbsp;+=&nbsp;tga.bytesPerPixel;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">currentpixel++;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Increase&nbsp;pixel&nbsp;count&nbsp;by&nbsp;1</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Make&nbsp;sure&nbsp;we&nbsp;havent&nbsp;written&nbsp;too&nbsp;many&nbsp;pixels</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">currentpixel&nbsp;&gt;&nbsp;pixelcount</font><font color="#000000">)&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;if&nbsp;there&nbsp;is&nbsp;too&nbsp;many...&nbsp;Display&nbsp;an&nbsp;error!</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>throw&nbsp;new&nbsp;</b></font><font color="#000000">IOException</font><font color="#000000">(</font><font color="#2a00ff">"Too&nbsp;many&nbsp;pixels&nbsp;read"</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#7f0055"><b>while&nbsp;</b></font><font color="#000000">(</font><font color="#000000">currentpixel&nbsp;&lt;&nbsp;pixelcount</font><font color="#000000">)</font><font color="#000000">;&nbsp;</font><font color="#3f7f5f">//&nbsp;Loop&nbsp;while&nbsp;there&nbsp;are&nbsp;still&nbsp;pixels&nbsp;left</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;static&nbsp;</b></font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">unsignedByteToInt</font><font color="#000000">(</font><font color="#7f0055"><b>byte&nbsp;</b></font><font color="#000000">b</font><font color="#000000">)&nbsp;{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#000000">(</font><font color="#7f0055"><b>int</b></font><font color="#000000">)&nbsp;</font><font color="#000000">b&nbsp;&amp;&nbsp;</font><font color="#990000">0xFF</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>package&nbsp;</b></font><font color="#000000">demos.nehe.lesson33;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">java.nio.ByteBuffer;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>class&nbsp;</b></font><font color="#000000">Texture&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ByteBuffer&nbsp;imageData;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Image&nbsp;Data&nbsp;(Up&nbsp;To&nbsp;32&nbsp;Bits)</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">bpp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Image&nbsp;Color&nbsp;Depth&nbsp;In&nbsp;Bits&nbsp;Per&nbsp;Pixel</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">width;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Image&nbsp;width</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">height;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Image&nbsp;height</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int</b></font><font color="#000000">[]&nbsp;</font><font color="#000000">texID&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#7f0055"><b>int</b></font><font color="#000000">[</font><font color="#990000">1</font><font color="#000000">]</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Texture&nbsp;ID&nbsp;Used&nbsp;To&nbsp;Select&nbsp;A&nbsp;Texture</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">type;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Image&nbsp;Type&nbsp;(GL_RGB,&nbsp;GL_RGBA)</font><br>
+<font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>package&nbsp;</b></font><font color="#000000">demos.nehe.lesson33;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">javax.media.opengl.GL;</font><br>
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">javax.media.opengl.GLAutoDrawable;</font><br>
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">javax.media.opengl.GLEventListener;</font><br>
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">javax.media.opengl.glu.GLU;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">java.io.IOException;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#7f0055"><b>class&nbsp;</b></font><font color="#000000">Renderer&nbsp;</font><font color="#7f0055"><b>implements&nbsp;</b></font><font color="#000000">GLEventListener&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;</b></font><font color="#7f0055"><b>float&nbsp;</b></font><font color="#000000">spin;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Spin&nbsp;Variable</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;</b></font><font color="#000000">Texture</font><font color="#000000">[]&nbsp;</font><font color="#000000">texture&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Texture</font><font color="#000000">[</font><font color="#990000">2</font><font color="#000000">]</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Storage&nbsp;For&nbsp;2&nbsp;Textures&nbsp;(&nbsp;NEW&nbsp;)</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;</b></font><font color="#000000">GLU&nbsp;glu&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">GLU</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#000000">Renderer</font><font color="#000000">()&nbsp;{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Load&nbsp;Bitmaps&nbsp;And&nbsp;Convert&nbsp;To&nbsp;Textures</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">loadGLTextures</font><font color="#000000">(</font><font color="#000000">GL&nbsp;gl</font><font color="#000000">)&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">IOException&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture</font><font color="#000000">[</font><font color="#990000">0</font><font color="#000000">]&nbsp;</font><font color="#000000">=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Texture</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture</font><font color="#000000">[</font><font color="#990000">1</font><font color="#000000">]&nbsp;</font><font color="#000000">=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Texture</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Load&nbsp;The&nbsp;Bitmap,&nbsp;Check&nbsp;For&nbsp;Errors.</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">TGALoader.loadTGA</font><font color="#000000">(</font><font color="#000000">texture</font><font color="#000000">[</font><font color="#990000">0</font><font color="#000000">]</font><font color="#000000">,&nbsp;</font><font color="#2a00ff">"demos/data/images/uncompressed.tga"</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">TGALoader.loadTGA</font><font color="#000000">(</font><font color="#000000">texture</font><font color="#000000">[</font><font color="#990000">1</font><font color="#000000">]</font><font color="#000000">,&nbsp;</font><font color="#2a00ff">"demos/data/images/compressed.tga"</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Loop&nbsp;Through&nbsp;Both&nbsp;Textures</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>for&nbsp;</b></font><font color="#000000">(</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">loop&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;&nbsp;loop&nbsp;&lt;&nbsp;</font><font color="#990000">2</font><font color="#000000">;&nbsp;loop++</font><font color="#000000">)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Typical&nbsp;Texture&nbsp;Generation&nbsp;Using&nbsp;Data&nbsp;From&nbsp;The&nbsp;TGA&nbsp;(&nbsp;CHANGE&nbsp;)</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Create&nbsp;The&nbsp;Texture&nbsp;(&nbsp;CHANGE&nbsp;)</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glGenTextures</font><font color="#000000">(</font><font color="#990000">1</font><font color="#000000">,&nbsp;texture</font><font color="#000000">[</font><font color="#000000">loop</font><font color="#000000">]</font><font color="#000000">.texID,&nbsp;</font><font color="#990000">0</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glBindTexture</font><font color="#000000">(</font><font color="#000000">GL.GL_TEXTURE_2D,&nbsp;texture</font><font color="#000000">[</font><font color="#000000">loop</font><font color="#000000">]</font><font color="#000000">.texID</font><font color="#000000">[</font><font color="#990000">0</font><font color="#000000">])</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glTexImage2D</font><font color="#000000">(</font><font color="#000000">GL.GL_TEXTURE_2D,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;texture</font><font color="#000000">[</font><font color="#000000">loop</font><font color="#000000">]</font><font color="#000000">.bpp&nbsp;/&nbsp;</font><font color="#990000">8</font><font color="#000000">,&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture</font><font color="#000000">[</font><font color="#000000">loop</font><font color="#000000">]</font><font color="#000000">.width,&nbsp;texture</font><font color="#000000">[</font><font color="#000000">loop</font><font color="#000000">]</font><font color="#000000">.height,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">texture</font><font color="#000000">[</font><font color="#000000">loop</font><font color="#000000">]</font><font color="#000000">.type,&nbsp;GL.GL_UNSIGNED_BYTE,&nbsp;texture</font><font color="#000000">[</font><font color="#000000">loop</font><font color="#000000">]</font><font color="#000000">.imageData</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glTexParameteri</font><font color="#000000">(</font><font color="#000000">GL.GL_TEXTURE_2D,&nbsp;GL.GL_TEXTURE_MIN_FILTER,&nbsp;GL.GL_LINEAR</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glTexParameteri</font><font color="#000000">(</font><font color="#000000">GL.GL_TEXTURE_2D,&nbsp;GL.GL_TEXTURE_MAG_FILTER,&nbsp;GL.GL_LINEAR</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">init</font><font color="#000000">(</font><font color="#000000">GLAutoDrawable&nbsp;glDrawable</font><font color="#000000">)&nbsp;{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">GL&nbsp;gl&nbsp;=&nbsp;glDrawable.getGL</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>try&nbsp;</b></font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">loadGLTextures</font><font color="#000000">(</font><font color="#000000">gl</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Jump&nbsp;To&nbsp;Texture&nbsp;Loading&nbsp;Routine&nbsp;(&nbsp;NEW&nbsp;)</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#7f0055"><b>catch&nbsp;</b></font><font color="#000000">(</font><font color="#000000">IOException&nbsp;e</font><font color="#000000">)&nbsp;{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>throw&nbsp;new&nbsp;</b></font><font color="#000000">RuntimeException</font><font color="#000000">(</font><font color="#000000">e</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glEnable</font><font color="#000000">(</font><font color="#000000">GL.GL_TEXTURE_2D</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Enable&nbsp;Texture&nbsp;Mapping&nbsp;(&nbsp;NEW&nbsp;)</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glShadeModel</font><font color="#000000">(</font><font color="#000000">GL.GL_SMOOTH</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Enable&nbsp;Smooth&nbsp;Shading</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glClearColor</font><font color="#000000">(</font><font color="#990000">0.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.5f</font><font color="#000000">)</font><font color="#000000">;</font><font color="#3f7f5f">//&nbsp;Black&nbsp;Background</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glClearDepth</font><font color="#000000">(</font><font color="#990000">1.0f</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Depth&nbsp;Buffer&nbsp;Setup</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glEnable</font><font color="#000000">(</font><font color="#000000">GL.GL_DEPTH_TEST</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Enables&nbsp;Depth&nbsp;Testing</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glDepthFunc</font><font color="#000000">(</font><font color="#000000">GL.GL_LEQUAL</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;The&nbsp;Type&nbsp;Of&nbsp;Depth&nbsp;Testing&nbsp;To&nbsp;Do</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Really&nbsp;Nice&nbsp;Perspective&nbsp;Calculations</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glHint</font><font color="#000000">(</font><font color="#000000">GL.GL_PERSPECTIVE_CORRECTION_HINT,&nbsp;GL.GL_NICEST</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">display</font><font color="#000000">(</font><font color="#000000">GLAutoDrawable&nbsp;glDrawable</font><font color="#000000">)&nbsp;{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">GL&nbsp;gl&nbsp;=&nbsp;glDrawable.getGL</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Clear&nbsp;The&nbsp;Screen&nbsp;And&nbsp;The&nbsp;Depth&nbsp;Buffer</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glClear</font><font color="#000000">(</font><font color="#000000">GL.GL_COLOR_BUFFER_BIT&nbsp;|&nbsp;GL.GL_DEPTH_BUFFER_BIT</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glLoadIdentity</font><font color="#000000">()</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Reset&nbsp;The&nbsp;Modelview&nbsp;Matrix</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glTranslatef</font><font color="#000000">(</font><font color="#990000">0.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">,&nbsp;-</font><font color="#990000">10.0f</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Translate&nbsp;20&nbsp;Units&nbsp;Into&nbsp;The&nbsp;Screen</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">spin&nbsp;+=&nbsp;</font><font color="#990000">0.05f</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Increase&nbsp;Spin</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>for&nbsp;</b></font><font color="#000000">(</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">loop&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;&nbsp;loop&nbsp;&lt;&nbsp;</font><font color="#990000">20</font><font color="#000000">;&nbsp;loop++</font><font color="#000000">)&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Loop&nbsp;Of&nbsp;20</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glPushMatrix</font><font color="#000000">()</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Push&nbsp;The&nbsp;Matrix</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Rotate&nbsp;On&nbsp;The&nbsp;X-Axis&nbsp;(Up&nbsp;-&nbsp;Down)</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glRotatef</font><font color="#000000">(</font><font color="#000000">spin&nbsp;+&nbsp;loop&nbsp;*&nbsp;</font><font color="#990000">18.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glTranslatef</font><font color="#000000">(</font><font color="#000000">-</font><font color="#990000">2.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">2.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Translate&nbsp;2&nbsp;Units&nbsp;Left&nbsp;And&nbsp;2&nbsp;Up</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glBindTexture</font><font color="#000000">(</font><font color="#000000">GL.GL_TEXTURE_2D,&nbsp;texture</font><font color="#000000">[</font><font color="#990000">0</font><font color="#000000">]</font><font color="#000000">.texID</font><font color="#000000">[</font><font color="#990000">0</font><font color="#000000">])</font><font color="#000000">;&nbsp;</font><font color="#3f7f5f">//&nbsp;(&nbsp;CHANGE&nbsp;)</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glBegin</font><font color="#000000">(</font><font color="#000000">GL.GL_QUADS</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Draw&nbsp;Our&nbsp;Quad</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glTexCoord2f</font><font color="#000000">(</font><font color="#990000">0.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">1.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glVertex3f</font><font color="#000000">(</font><font color="#000000">-</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glTexCoord2f</font><font color="#000000">(</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">1.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glVertex3f</font><font color="#000000">(</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glTexCoord2f</font><font color="#000000">(</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glVertex3f</font><font color="#000000">(</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;-</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glTexCoord2f</font><font color="#000000">(</font><font color="#990000">0.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glVertex3f</font><font color="#000000">(</font><font color="#000000">-</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;-</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glEnd</font><font color="#000000">()</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Done&nbsp;Drawing&nbsp;The&nbsp;Quad</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glPopMatrix</font><font color="#000000">()</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Pop&nbsp;The&nbsp;Matrix</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glPushMatrix</font><font color="#000000">()</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Push&nbsp;The&nbsp;Matrix</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glTranslatef</font><font color="#000000">(</font><font color="#990000">2.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Translate&nbsp;2&nbsp;Units&nbsp;To&nbsp;The&nbsp;Right</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Rotate&nbsp;On&nbsp;The&nbsp;Y-Axis&nbsp;(Left&nbsp;-&nbsp;Right)</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glRotatef</font><font color="#000000">(</font><font color="#000000">spin&nbsp;+&nbsp;loop&nbsp;*&nbsp;</font><font color="#990000">36.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glTranslatef</font><font color="#000000">(</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Move&nbsp;One&nbsp;Unit&nbsp;Right</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glBindTexture</font><font color="#000000">(</font><font color="#000000">GL.GL_TEXTURE_2D,&nbsp;texture</font><font color="#000000">[</font><font color="#990000">1</font><font color="#000000">]</font><font color="#000000">.texID</font><font color="#000000">[</font><font color="#990000">0</font><font color="#000000">])</font><font color="#000000">;&nbsp;</font><font color="#3f7f5f">//&nbsp;(&nbsp;CHANGE&nbsp;)</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glBegin</font><font color="#000000">(</font><font color="#000000">GL.GL_QUADS</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Draw&nbsp;Our&nbsp;Quad</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glTexCoord2f</font><font color="#000000">(</font><font color="#990000">0.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glVertex3f</font><font color="#000000">(</font><font color="#000000">-</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glTexCoord2f</font><font color="#000000">(</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glVertex3f</font><font color="#000000">(</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glTexCoord2f</font><font color="#000000">(</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">1.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glVertex3f</font><font color="#000000">(</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;-</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glTexCoord2f</font><font color="#000000">(</font><font color="#990000">0.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">1.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glVertex3f</font><font color="#000000">(</font><font color="#000000">-</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;-</font><font color="#990000">1.0f</font><font color="#000000">,&nbsp;</font><font color="#990000">0.0f</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glEnd</font><font color="#000000">()</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Done&nbsp;Drawing&nbsp;The&nbsp;Quad</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glPopMatrix</font><font color="#000000">()</font><font color="#000000">;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Pop&nbsp;The&nbsp;Matrix</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">reshape</font><font color="#000000">(</font><font color="#000000">GLAutoDrawable&nbsp;glDrawable,&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">x,&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">y,&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">w,&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">h</font><font color="#000000">)&nbsp;{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">h&nbsp;==&nbsp;</font><font color="#990000">0</font><font color="#000000">)&nbsp;</font><font color="#000000">h&nbsp;=&nbsp;</font><font color="#990000">1</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">GL&nbsp;gl&nbsp;=&nbsp;glDrawable.getGL</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Reset&nbsp;The&nbsp;Current&nbsp;Viewport&nbsp;And&nbsp;Perspective&nbsp;Transformation</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glViewport</font><font color="#000000">(</font><font color="#990000">0</font><font color="#000000">,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;w,&nbsp;h</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glMatrixMode</font><font color="#000000">(</font><font color="#000000">GL.GL_PROJECTION</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Select&nbsp;The&nbsp;Projection&nbsp;Matrix</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glLoadIdentity</font><font color="#000000">()</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Reset&nbsp;The&nbsp;Projection&nbsp;Matrix</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Calculate&nbsp;The&nbsp;Aspect&nbsp;Ratio&nbsp;Of&nbsp;The&nbsp;Window</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">glu.gluPerspective</font><font color="#000000">(</font><font color="#990000">45.0f</font><font color="#000000">,&nbsp;</font><font color="#000000">(</font><font color="#7f0055"><b>float</b></font><font color="#000000">)&nbsp;</font><font color="#000000">w&nbsp;/&nbsp;</font><font color="#000000">(</font><font color="#7f0055"><b>float</b></font><font color="#000000">)&nbsp;</font><font color="#000000">h,&nbsp;</font><font color="#990000">0.1f</font><font color="#000000">,&nbsp;</font><font color="#990000">100.0f</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glMatrixMode</font><font color="#000000">(</font><font color="#000000">GL.GL_MODELVIEW</font><font color="#000000">)</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Select&nbsp;The&nbsp;Modelview&nbsp;Matrix</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">gl.glLoadIdentity</font><font color="#000000">()</font><font color="#000000">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Reset&nbsp;The&nbsp;ModalView&nbsp;Matrix</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">displayChanged</font><font color="#000000">(</font><font color="#000000">GLAutoDrawable&nbsp;glDrawable,&nbsp;</font><font color="#7f0055"><b>boolean&nbsp;</b></font><font color="#000000">b,&nbsp;</font><font color="#7f0055"><b>boolean&nbsp;</b></font><font color="#000000">b1</font><font color="#000000">)&nbsp;{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#000000">}</font></code>
+    
+   </td>
+  <!-- end source code -->
+   </tr>
+</tbody></table>
+</div>
+<!-- =       END of automatically generated HTML code       = -->
+<!-- ======================================================== -->
+
+
+
+<br clear="all">
+<h3><div class="moduletable" style="color: #ffffff;  background-color:#336699; font-size:12px"><span align="left"><strong>&nbsp;<u>Related Tips</u></strong></span></div></h3> 
+<ul><li><a href="http://www.java-tips.org/other-api-tips/netbeans/i-have-written-a-module.-can-i-sell-it.html"> I have written a module. Can I sell it?</a></li>
+<li><a href="http://www.java-tips.org/other-api-tips/jogl/2d-texture-font-nehe-tutorial-jogl-port.html">2D texture font - NeHe Tutorial JOGL Port</a></li>
+<li><a href="http://www.java-tips.org/other-api-tips/java3d/3d-human-animation-applet-2.html">3D Human Animation Applet</a></li>
+<li><a href="http://www.java-tips.org/other-api-tips/jogl/3d-lens-flare-with-occlusion-testing-nehe-tutorial-jogl.html">3D lens flare with occlusion testing - NeHe Tutorial JOGL Port</a></li>
+<li><a href="http://www.java-tips.org/other-api-tips/jogl/3d-shapes-nehe-tutorial-jogl-port.html">3D shapes - NeHe Tutorial JOGL Port</a></li>
+<li><a href="http://www.java-tips.org/other-api-tips/jogl/a-model-with-a-light-which-is-moved-by-a-modeling-transform.html">A model with a light which is moved by a modeling transformation</a></li>
+<li><a href="http://www.java-tips.org/other-api-tips/java3d/a-morph-object-to-animate-a-shape-between-two-key-s.html">A Morph object to animate a shape between two key shapes</a></li>
+<li><a href="http://www.java-tips.org/other-api-tips/java3d/a-red-sphere-using-the-sphere-utility-class.html">A red sphere using the Sphere utility class</a></li>
+</ul>
+			</td>
+		</tr>
+				</tbody></table>
+
+		<span class="article_seperator">&nbsp;</span>
+
+		<center><table border="1" cellpadding="5" cellspacing="5"><tbody><tr><td><!-- begin ad tag (tile=2) -->
+<script language="JavaScript" type="text/javascript">
+if (typeof ord=='undefined') {ord=Math.random()*10000000000000000;}
+document.write('<script language="JavaScript" src="http://a.collective-media.net/adj/idgt.javatips/article_above;sec=article;fold=above;tile=2;sz=300X250;ord=' + ord + '?" type="text/javascript"><\/script>');
+</script><script language="JavaScript" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/article_above;sec=article;fold=above;tile=2;sz=300X250" type="text/javascript"></script><noscript>&lt;a href="http://a.collective-media.net/jump/idgt.javatips/article_above;sec=article;fold=above;tile=2;sz=300X250;ord=123456789?" target="_blank"&gt;&lt;img src="http://a.collective-media.net/ad/idgt.javatips/article_above;sec=article;fold=above;tile=2;sz=300X250;ord=123456789?" width="300" height="250" border="0" alt=""&gt;&lt;/a&gt;</noscript>
+<!-- End ad tag --></td><td><!-- begin ad tag (tile=2) -->
+<script language="JavaScript" type="text/javascript">
+if (typeof ord=='undefined') {ord=Math.random()*10000000000000000;}
+document.write('<script language="JavaScript" src="http://a.collective-media.net/adj/idgt.javatips/article_above;sec=article;fold=above;tile=2;sz=300X250;ord=' + ord + '?" type="text/javascript"><\/script>');
+</script><script language="JavaScript" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/article_above;sec=article;fold=above;tile=2;sz=300X250" type="text/javascript"></script><noscript>&lt;a href="http://a.collective-media.net/jump/idgt.javatips/article_above;sec=article;fold=above;tile=2;sz=300X250;ord=123456789?" target="_blank"&gt;&lt;img src="http://a.collective-media.net/ad/idgt.javatips/article_above;sec=article;fold=above;tile=2;sz=300X250;ord=123456789?" width="300" height="250" border="0" alt=""&gt;&lt;/a&gt;</noscript>
+<!-- End ad tag --></td></tr></tbody></table></center>			<table align="center" style="margin-top: 25px;">
+			<tbody><tr>
+									<th class="pagenav_prev">
+						<a href="http://www.java-tips.org/other-api-tips/jogl/loading-and-moving-through-a-3d-world-nehe-tutorial-jogl.html">
+							&lt; Prev</a>
+					</th>
+										<td width="50">&nbsp;
+
+					</td>
+										<th class="pagenav_next">
+						<a href="http://www.java-tips.org/other-api-tips/jogl/masking-nehe-tutorial-jogl-port.html">
+							Next &gt;</a>
+					</th>
+								</tr>
+			</tbody></table>
+			                
+
+
+
+
+
+
+
+<link rel="stylesheet" href="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/comments.css" type="text/css"><!-- id 0, 0 --><style type="text/css">
+<!--
+.pageselected {
+    color: #FF0000;
+    font-weight: bold;
+    font-size: larger;
+}
+-->
+</style>
+<div class="comm_pages"><div><div align="center"> <br>Page 1 of 0 ( 0 comments )</div></div></div><script language="JavaScript" type="text/javascript">
+<!--
+// bbCode control by
+// subBlue design
+// www.subBlue.com
+// adapted for Simpleboard by the Two Shoes Module Factory (www.tsmf.jigsnet.com)
+
+// Startup variables
+var imageTag = false;
+var theSelection = false;
+
+// Check for Browser & Platform for PC & IE specific bits
+// More details from: http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html
+var clientPC = navigator.userAgent.toLowerCase(); // Get client info
+var clientVer = parseInt(navigator.appVersion); // Get browser version
+
+var is_ie = ((clientPC.indexOf("msie") != -1) && (clientPC.indexOf("opera") == -1));
+var is_nav = ((clientPC.indexOf('mozilla')!=-1) && (clientPC.indexOf('spoofer')==-1)
+                && (clientPC.indexOf('compatible') == -1) && (clientPC.indexOf('opera')==-1)
+                && (clientPC.indexOf('webtv')==-1) && (clientPC.indexOf('hotjava')==-1));
+var is_moz = 0;
+
+var is_win = ((clientPC.indexOf("win")!=-1) || (clientPC.indexOf("16bit") != -1));
+var is_mac = (clientPC.indexOf("mac")!=-1);
+
+
+
+// Define the bbCode tags
+bbcode = new Array();
+bbtags = new Array('[b]','[/b]','[i]','[/i]','[u]','[/u]','[quote]','[/quote]','[code]','[/code]','[ul]','[/ul]','[ol]','[/ol]','[img size=150]','[/img]','[url]','[/url]','[li]','[/li]');
+imageTag = false;
+
+// Shows the help messages in the helpline window
+function helpline(help) {
+   return eval(help + "_help");
+}
+
+
+// Replacement for arrayname.length property
+function getarraysize(thearray) {
+   for (i = 0; i < thearray.length; i++) {
+      if ((thearray[i] == "undefined") || (thearray[i] == "") || (thearray[i] == null))
+         return i;
+      }
+   return thearray.length;
+}
+
+// Replacement for arrayname.push(value) not implemented in IE until version 5.5
+// Appends element to the array
+function arraypush(thearray,value) {
+   thearray[ getarraysize(thearray) ] = value;
+}
+
+// Replacement for arrayname.pop() not implemented in IE until version 5.5
+// Removes and returns the last element of an array
+function arraypop(thearray) {
+   thearraysize = getarraysize(thearray);
+   retval = thearray[thearraysize - 1];
+   delete thearray[thearraysize - 1];
+   return retval;
+}
+
+
+function bbstyle(bbnumber) {
+
+   var txtarea = document.commentForm.mc_comment;
+
+   txtarea.focus();
+   donotinsert = false;
+   theSelection = false;
+   bblast = 0;
+
+   if (bbnumber == -1) { // Close all open tags & default button names
+      while (bbcode[0]) {
+         butnumber = arraypop(bbcode) - 1;
+         txtarea.value += bbtags[butnumber + 1];
+         buttext = eval('document.postform.addbbcode' + butnumber + '.value');
+         eval('document.postform.addbbcode' + butnumber + '.value ="' + buttext.substr(0,(buttext.length - 1)) + '"');
+      }
+      imageTag = false; // All tags are closed including image tags :D
+      txtarea.focus();
+      return;
+   }
+
+   if ((clientVer >= 4) && is_ie && is_win)
+   {
+      theSelection = document.selection.createRange().text; // Get text selection
+      if (theSelection) {
+         // Add tags around selection
+         document.selection.createRange().text = bbtags[bbnumber] + theSelection + bbtags[bbnumber+1];
+         txtarea.focus();
+         theSelection = '';
+         return;
+      }
+   }
+   else if (txtarea.selectionEnd && (txtarea.selectionEnd - txtarea.selectionStart > 0))
+   {
+      mozWrap(txtarea, bbtags[bbnumber], bbtags[bbnumber+1]);
+      return;
+   }
+
+   // Find last occurance of an open tag the same as the one just clicked
+   for (i = 0; i < bbcode.length; i++) {
+      if (bbcode[i] == bbnumber+1) {
+         bblast = i;
+         donotinsert = true;
+      }
+   }
+
+   if (donotinsert) {      // Close all open tags up to the one just clicked & default button names
+      while (bbcode[bblast]) {
+            butnumber = arraypop(bbcode) - 1;
+            txtarea.value += bbtags[butnumber + 1];
+            buttext = eval('document.postform.addbbcode' + butnumber + '.value');
+            eval('document.postform.addbbcode' + butnumber + '.value ="' + buttext.substr(0,(buttext.length - 1)) + '"');
+            imageTag = false;
+         }
+         txtarea.focus();
+         return;
+   } else { // Open tags
+
+      if (imageTag && (bbnumber != 14)) {    // Close image tag before adding another
+         txtarea.value += bbtags[15];
+         lastValue = arraypop(bbcode) - 1;   // Remove the close image tag from the list
+         document.postform.addbbcode14.value = "Img";  // Return button back to normal state
+         imageTag = false;
+      }
+
+      // Open tag
+      txtarea.value += bbtags[bbnumber];
+      if ((bbnumber == 14) && (imageTag == false)) imageTag = 1; // Check to stop additional tags after an unclosed image tag
+      arraypush(bbcode,bbnumber+1);
+      eval('document.postform.addbbcode'+bbnumber+'.value += "*"');
+      txtarea.focus();
+      return;
+   }
+   storeCaret(txtarea);
+}
+
+// From http://www.massless.org/mozedit/
+function mozWrap(txtarea, open, close)
+{
+   var selLength = txtarea.textLength;
+   var selStart = txtarea.selectionStart;
+   var selEnd = txtarea.selectionEnd;
+   if (selEnd == 1 || selEnd == 2)
+      selEnd = selLength;
+
+   var s1 = (txtarea.value).substring(0,selStart);
+   var s2 = (txtarea.value).substring(selStart, selEnd)
+   var s3 = (txtarea.value).substring(selEnd, selLength);
+   txtarea.value = s1 + open + s2 + close + s3;
+   return;
+}
+
+// Insert at Claret position. Code from
+// http://www.faqts.com/knowledge_base/view.phtml/aid/1052/fid/130
+function storeCaret(textEl) {
+   if (textEl.createTextRange) textEl.caretPos = document.selection.createRange().duplicate();
+}
+
+
+function bbfontstyle(bbopen, bbclose) {
+   var txtarea = document.postform.message;
+
+   if ((clientVer >= 4) && is_ie && is_win) {
+      theSelection = document.selection.createRange().text;
+      if (!theSelection) {
+         txtarea.value += bbopen + bbclose;
+         txtarea.focus();
+         return;
+      }
+      document.selection.createRange().text = bbopen + theSelection + bbclose;
+      txtarea.focus();
+      return;
+   }
+   else if (txtarea.selectionEnd && (txtarea.selectionEnd - txtarea.selectionStart > 0))
+   {
+      mozWrap(txtarea, bbopen, bbclose);
+      return;
+   }
+   else
+   {
+      txtarea.value += bbopen + bbclose;
+      txtarea.focus();
+   }
+   storeCaret(txtarea);
+}
+
+//#######################################################
+//code used in My Profile (userprofile.php)
+function textCounter(field, countfield, maxlimit) {
+   if(field.value.length > maxlimit){
+      field.value = field.value.substring(0, maxlimit);
+   }
+   else{
+      countfield.value = maxlimit - field.value.length;
+   }
+}
+//*********************************************************
+// Insert emoticons
+
+function emo($e)
+{
+ document.postform.message.value=document.postform.message.value+$e;
+ document.postform.message.focus();
+}
+function submitForm() {
+
+ submitme=1;
+
+ formname=document.postform.sb_authorname.value;
+ if ((formname.length<1)) {
+    alert("You forgot to enter your name");
+    submitme=0;
+ }
+
+ formmail=document.postform.email.value;
+ if ((formmail.length<1)) {
+    alert("You forgot to enter your email");
+    submitme=0;
+  }
+  formsubject=document.postform.subject.value;
+  if ((formsubject.length<1)) {
+    alert("You forgot to enter a subject");
+    submitme=0;
+  }
+
+  if (submitme>0) {
+  //change the following line to true to submit form
+    return true;
+
+  }else{
+    return false;
+  }
+}
+
+function cancelForm() {
+   document.forms['postform'].action.value = "cancel";
+   return true;
+}
+
+//**********************************************
+// Helpline messages
+q_help = "Mark as quoted text";
+c_help = "Mark as Code/XML. The text will be displayed without formatting";
+a_help = "Close all open tags";
+submit_help = "Sumbit the comment";
+preview_help = "Preview the comment";
+name_help= "the Name that will appear in the comment";
+email_help= "the email will appear only to the administrator";
+html_help= "if set to Yes then HTML tags will be interpreted";
+comment_help= "Write here your comment";
+
+//**************************************************
+// Open the preview window (with some post parsing)
+function Preview(stylesheet, sbs) {
+message=document.getElementById('message');
+
+//these gotta be in both... I don't knwo why, but it works...
+messageString = message.innertext;
+messageString = message.value;
+
+messageString = messageString.replace(/<(.*?)>/g,"&lt;$1&gt;");
+messageString = messageString.replace(/</g,"&lt;");
+messageString = messageString.replace(/\n/g,"<br>");
+messageString = messageString.replace(/\[b\]/g,"<b>");
+messageString = messageString.replace(/\[\/b\]/g,"</b>");
+messageString = messageString.replace(/\[i\]/g,"<i>");
+messageString = messageString.replace(/\[\/i\]/g,"</i>");
+messageString = messageString.replace(/\[u\]/g,"<u>");
+messageString = messageString.replace(/\[\/u\]/g,"</u>");
+messageString = messageString.replace(/\[quote\]/g,'<div class="sb_review_quote">');
+messageString = messageString.replace(/\[\/quote\]/g,'</div>');
+messageString = messageString.replace(/\[code\]/g,'<table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr><td><b>Code:</b></span></td></tr><tr><td class="sb_code"><pre>');
+messageString = messageString.replace(/\[\/code\]/g,'</pre></tr></table>');
+messageString = messageString.replace(/\[code:1\]/g,'<table width="90%" cellspacing="1" cellpadding="3" border="0" align="center"><tr><td><b>Code:</b></span></td></tr><tr><td class="sb_code"><pre>');
+messageString = messageString.replace(/\[\/code:1\]/g,'</pre></tr></table>');
+messageString = messageString.replace(/\[ul\]/g,"<ul>");
+messageString = messageString.replace(/\[\/ul\]/g,"</ul>");
+messageString = messageString.replace(/\[ol\]/g,"<ol>");
+messageString = messageString.replace(/\[\/ol\]/g,"</ol>");
+messageString = messageString.replace(/\[li\]/g,"<li>");
+messageString = messageString.replace(/\[\/li\]/g,"</li>");
+messageString = messageString.replace(/B\)/g,'<img src="'+sbs+'/emoticons/sun.gif">');
+messageString = messageString.replace(/;\)/g,'<img src="'+sbs+'/emoticons/wink.gif">');
+messageString = messageString.replace(/:\)/g,'<img src="'+sbs+'/emoticons/happy.gif">');
+messageString = messageString.replace(/:laugh:/g,'<img src="'+sbs+'/emoticons/laugh.gif">');
+messageString = messageString.replace(/:ohmy:/g,'<img src="'+sbs+'/emoticons/ohmy.gif">');
+messageString = messageString.replace(/:x/g,'<img src="'+sbs+'/emoticons/sick.gif">');
+messageString = messageString.replace(/:mad:/g,'<img src="'+sbs+'/emoticons/angry.gif">');
+messageString = messageString.replace(/:blink:/g,'<img src="'+sbs+'/emoticons/blink.gif">');
+messageString = messageString.replace(/:P/g,'<img src="'+sbs+'/emoticons/tongue.gif">');
+messageString = messageString.replace(/:\(/g,'<img src="'+sbs+'/emoticons/unhappy.gif">');
+messageString = messageString.replace(/:unsure:/g,'<img src="'+sbs+'/emoticons/unsure.gif">');
+messageString = messageString.replace(/:lol:/g,'<img src="'+sbs+'/emoticons/lol.gif">');
+messageString = messageString.replace(/:huh:/g,'<img src="'+sbs+'/emoticons/huh.gif">');
+messageString = messageString.replace(/:dry:/g,'<img src="'+sbs+'/emoticons/dry.gif">');
+messageString = messageString.replace(/:rolleyes:/g,'<img src="'+sbs+'/emoticons/rolleyes.gif">');
+messageString = messageString.replace(/:y32b4:/g,'<img src="'+sbs+'/emoticons/y32b4.gif">');
+
+messageString = messageString.replace(/\[img size=([1-4][0-9][0-9])\](.*?)\[\/img\]/g,"<img src=\"$2\" border\"0\" width=\"$1\">");
+messageString = messageString.replace(/\[img\](.*?)\[\/img\]/g,"<img src=\"$1\" border\"0\">");
+messageString = messageString.replace(/(\[url\])(.*?)(\[\/url\])/g,"<a href=$2 target=\"_blank\">$2</a>");
+messageString = messageString.replace(/\[url=(.*?)\](.*?)\[\/url\]/g,"<a href=\"$1\" target=\"_blank\">$2</a>");
+messageString = messageString.replace(/\[size=([1-7])\](.+?)\[\/size\]/g,"<font size=\"$1\">$2</font>");
+messageString = messageString.replace(/\[color=(.*?)\](.*?)\[\/color\]/g,"<span style=\"color: $1\">$2</span>");
+messageString = messageString.replace(/\[file name=(.*?) size=(.*?)\](.*?)\[\/file\]/g,"<div class=\"sb_file_attachment\"><span class=\"contentheading\">File Attachment:</span><br>File name: <a href=\"$3\">$1</a><br>File size:$2 bytes</div>");
+
+//and finally open the window for displaying the lot
+win = window.open('','Preview','width=640, height=480, toolbar = no, status = no, resizable, scrollbars');
+win.document.write("<link media=\"all\" type=\"text/css\" href=\""+ stylesheet + "\" rel=\"stylesheet\">");
+win.document.write("<link media=\"all\" type=\"text/css\" href=\""+ sbs + "/forum.css\" rel=\"stylesheet\">");
+win.document.write("<div style=\"margin-left:10px; margin-top:10px;margin-right:10px;margin-bottom:10px\">");
+win.document.write("<hr size=1 width=\"20%\" align=\"left\">");
+win.document.write('' + messageString + '');
+win.document.write("<hr size=1 width=\"20%\" align=\"left\">");
+win.document.write("<a href=\"javascript:window.close()\"> Close this window </a> ");
+win.document.write("</div>");
+}
+
+
+/**
+* Pops up a new window in the middle of the screen
+*/
+function popupWindow(mypage, myname, w, h, scroll) {
+   var winl = (screen.width - w) / 2;
+   var wint = (screen.height - h) / 2;
+   winprops = 'height='+h+',width='+w+',top='+wint+',left='+winl+',scrollbars='+scroll+',resizable'
+   win = window.open(mypage, myname, winprops);
+   if (win.opener == null) win.opener = self;
+   if (parseInt(navigator.appVersion) >= 4) { win.window.focus(); }
+}
+
+function popUp(URL) {
+
+    eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=no,location=0,statusbar=0,menubar=0,resizable=0,width=300,height=250,left = 262,top = 184');");
+}
+
+//-->
+</script>
+
+<script type="text/javascript" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/overlib_mini.js"></script>
+<div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
+<script>
+function CheckNULL(val) {
+	if(val==null) {
+		return '';
+	}
+	else {
+		return val;
+	}
+}
+
+// this function gets the cookie, if it exists
+function Get_Cookie( name ) {
+	
+var start = document.cookie.indexOf( name + "=" );
+var len = start + name.length + 1;
+	if ( ( !start ) &&
+	( name != document.cookie.substring( 0, name.length ) ) )
+	{
+		return null;
+	}
+	if ( start == -1 ) return null;
+var end = document.cookie.indexOf( ";", len );
+	if ( end == -1 ) end = document.cookie.length;
+		return unescape( document.cookie.substring( len, end ) );
+}
+		
+
+</script>
+<a name="commentform"></a>
+<div class="commentheading"><div>
+      <div> <p>You can share your information about this topic using the form below! </p>
+
+<p>Please do not post your questions with this form! Thanks.</p>
+
+ </div></div></div>
+<div class="commentarea">
+  <div class="box">
+    <div>
+      <div>
+                <form method="post" action="http://www.java-tips.org/index.php?option=com_comments&task=mc_preview&id=1706" name="commentForm" id="commentForm">
+          <input name="return" type="hidden" value="index.php?option=content&amp;task=view&amp;id=1706">
+          <br>
+          <!--          <div class=commenttext> -->
+          Name <small><i>(required)</i></small><br>
+          <input type="text" name="mc_comment_name" style="width:268px;" class="inputbox" onmouseout="return nd();" onmouseover="return overlib(helpline(&#39;name&#39;))" value="">
+          <br>
+                    <!--          <div class=commenttext> -->
+          <br>
+          E-Mail <small><i>(required)</i></small>          <!--          </div> -->
+                    <br>
+          <input type="text" name="mc_comment_email" style="width:268px;" class="inputbox" onmouseout="return nd();" onmouseover="return overlib(helpline(&#39;email&#39;))" value="
+">
+          <!--          <div class="commentsmalltext"> -->
+          <br>
+          Your email will not be displayed on the site - only to our administrator          <!-- </div> -->
+          <br>
+          Homepage<small><i>(optional)</i></small>
+<br>
+<input type="text" name="mc_comment_homepage" style="width:288px;" class="inputbox" value="http://">
+<br>
+<br>
+          <!--          <div class="text"> -->
+          <br>
+          Comment          <!--</div> -->
+                    Enable HTML code :
+          <input type="radio" name="mc_htmlcode" value="1" checked="" onmouseout="return nd();" onmouseover="return overlib(helpline(&#39;html&#39;))">
+          Yes
+          <input type="radio" name="mc_htmlcode" value="0" onmouseover="helpline(&#39;html&#39;)">
+          No <br>
+          <input type="button" class="button" accesskey="q" name="addbbcode6" value="Quote" style="width: 50px" onclick="bbstyle(6)" onmouseout="return nd();" onmouseover="return overlib(helpline(&#39;q&#39;))">
+          <input type="button" class="button" accesskey="c" name="addbbcode8" value="Code" style="width: 40px" onclick="bbstyle(8)" onmouseout="return nd();" onmouseover="return overlib(helpline(&#39;c&#39;))">
+          <input type="button" class="button" accesskey="c" name="addbbcode-1" value="Close all" style="width: 60px" onclick="bbstyle(-1)" onmouseout="return nd();" onmouseover="return overlib(helpline(&#39;a&#39;))">
+          <br>
+          <textarea name="mc_comment" cols="50" rows="7" class="commentinputbox" onmouseover="helpline(&#39;comment&#39;)">
+ </textarea>
+          <br>
+          <input type="submit" class="button" name="pressbutton" value="Submit" style="width: 100px;" onmouseout="return nd();" onmouseover="return overlib(helpline(&#39;submit&#39;))">
+          <input type="reset" class="button" name="pressbutton" value="Reset" style="width: 100px;">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<!-- The wonderful world of open source make it easy to change the code any way you wish!  I kindly ask 
+please notify me and make a donation at http://ongetc.com before you decide to remove this line, thanks -->
+<!-- A request from the author of MosCom, Chanh Ong -->
+<script>
+	document.commentForm.mc_comment_email.value=CheckNULL(Get_Cookie("_mc_comment_email"));
+	document.commentForm.mc_comment_name.value=CheckNULL(Get_Cookie("_mc_comment_name"));
+	document.commentForm.mc_comment.value=CheckNULL(Get_Cookie("_mc_comment"));
+	document.commentForm.mc_htmlcode.value=CheckNULL(Get_Cookie("_mc_htmlcode"));
+
+</script>
+		</td>
+        <td width="20" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/right_back.png">&nbsp;</td>
+      </tr>
+
+      <tr>
+        <td width="20" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/left_back.png">&nbsp;</td>
+        <td valign="top" bgcolor="#FFFFFF">&nbsp;</td>
+        <td valign="top" bgcolor="#FFFFFF">&nbsp;</td>
+        <td valign="top"></td>
+        <td width="20" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/right_back.png">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="20" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/left_back.png">&nbsp;</td>
+        <td valign="top" bgcolor="#FFFFFF">&nbsp;</td>
+        <td valign="top" bgcolor="#FFFFFF">&nbsp;</td>
+        <td valign="top">&nbsp;</td>
+        <td width="20" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/right_back.png">&nbsp;</td>
+      </tr>
+
+
+    </tbody></table>
+
+
+    <table cellspacing="0" cellpadding="0" width="980" align="center" border="0">
+      <tbody>
+        <tr>
+          <td width="20" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/left_back.png">&nbsp;</td>
+          <td>&nbsp;</td>
+          <td width="20" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/right_back.png">&nbsp;</td>
+        </tr>
+        <tr>
+          <td width="20" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/left_back.png">&nbsp;</td>
+          <td><div align="center">
+              &nbsp;            </div></td>
+          <td width="20" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/right_back.png">&nbsp;</td>
+        </tr>
+        <tr>
+          <td width="20" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/left_back.png">&nbsp;</td>
+          <td class="legal_static">&nbsp;</td>
+          <td width="20" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/right_back.png">&nbsp;</td>
+        </tr>
+
+        <tr>
+          <td width="20" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/left_back.png">&nbsp;</td>
+          <td>
+	  <div align="center">
+
+<!-- begin ad tag (tile=5) -->
+<div id="div-gpt-ad-2803617656626-0">
+    <script type="text/javascript">
+       googletag.cmd.push(function() {
+         googletag.defineSlot('/8456/IDG.Java-Tips.com_Homepage', [300,250],'div-gpt-ad-2803617656626-0')
+           .addService(googletag.pubads())
+           .setTargeting("pos", "ATF")
+           .setTargeting("URL", encodeURIComponent(window.location));
+         googletag.enableServices();
+         googletag.display('div-gpt-ad-2803617656626-0');
+       });
+    </script> 
+</div>
+<!-- End ad tag -->
+
+	  </div>
+	  </td>
+          <td width="20" background="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/right_back.png">&nbsp;</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+    <table cellspacing="0" cellpadding="0" width="980" align="center" border="0">
+      <tbody>
+        <tr>
+          <td width="393"><div align="left" height="90"> <img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/bottom_left.png" width="393" height="90" alt="java bottom left"> </div></td>
+          <td><div align="center" height="90"> <img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/bottom_middle.png" width="100%" height="90" alt="java bottom middle"> </div></td>
+          <td width="387"><div align="right" height="90"> <img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/bottom_right.png" width="387" height="90" alt="java bottom right"> </div></td>
+        </tr>
+      </tbody>
+    </table>
+	</td>
+	</tr>
+
+</tbody></table>
+		<table cellpadding="0" cellspacing="0" class="moduletable">
+				<tbody><tr>
+			<td>
+				<link href="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/ds-syndicate.css" rel="stylesheet" type="text/css">
+<div align="center"><a href="http://www.java-tips.org/index2.php?option=com_ds-syndicate&type=RSS0.91&no_html=1" target="_blank"><img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/rss091.gif" class="feedImg_ds-syndicate" alt="RSS 0.91 Feed"></a><a href="http://www.java-tips.org/index2.php?option=com_ds-syndicate&type=RSS1.0&no_html=1" target="_blank"><img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/rss10.gif" class="feedImg_ds-syndicate" alt="RSS 1.0 Feed"></a><a href="http://www.java-tips.org/index2.php?option=com_ds-syndicate&type=RSS2.0&no_html=1" target="_blank"><img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/rss20.gif" class="feedImg_ds-syndicate" alt="RSS 2.0 Feed"></a><a href="http://www.java-tips.org/index2.php?option=com_ds-syndicate&type=ATOM0.3&no_html=1" target="_blank"><img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/atom03.gif" class="feedImg_ds-syndicate" alt="ATOM Feed"></a><a href="http://www.java-tips.org/index2.php?option=com_ds-syndicate&type=OPML&no_html=1" target="_blank"><img src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/opml.png" class="feedImg_ds-syndicate" alt="OPML Feed"></a></div>			</td>
+		</tr>
+		</tbody></table>
+		
+
+<br>
+
+
+<center>
+<table border="0">
+<tbody><tr>
+<td>
+<a href="http://www.java-tips.org/">Home</a>
+</td><td>
+</td><td>
+-
+</td><td>
+</td><td>
+<a href="http://www.java-tips.org/faqs/about-java-tips.org/what-is-java-tips.org.html">About Us</a>
+</td><td>
+</td><td>
+-
+</td><td>
+</td><td>
+<a href="http://www.java-tips.org/site-documentation/legal/privacy-policy.html">Privacy Policy</a>
+</td><td>
+</td></tr>
+</tbody></table>
+</center>
+
+
+<div align="center">Copyright 2005 - 2008 www.java-tips.org</div>
+<div align="center">Java is a trademark of Sun Microsystems, Inc.</div>
+
+	
+<!-- Kontera ContentLink(TM);-->
+<script type="text/javascript">
+var dc_AdLinkColor = 'blue' ;
+var dc_isBoldActive= 'no';
+var dc_PublisherID = 179488 ;
+</script>
+<script type="text/javascript" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/KonaLibInline.js">
+</script><script language="JavaScript" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/KonaFlashBase.js"></script><a href="http://www.java-tips.org/#" target="_top" id="AdLinkLayerClick"></a>
+<span id="konasapn0"><script type="text/javascript" src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/KonaGet.js"></script></span>
+
+<!-- Kontera ContentLink(TM) -->
+
+
+<!-- Start of Google Analytics Code -->
+<script src="./Java Tips - Loading compressed and uncompressed TGAs - NeHe Tutorial JOGL Port_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-136266-1";
+urchinTracker();
+</script>
+<!-- End of Google Analytics Code -->
+
+<script type="text/javascript">
+doclix_pid = 16593;
+doclix_cid_anchor = 1444;
+</script>
+
+
+
+<style></style><style></style><div class="tooltip" style="position: absolute; visibility: hidden; opacity: 0;"><h4></h4><p></p></div><style type="text/css" id="pxzstyle">#pxzcont{position:absolute;top:0px;left:0px;width:0px;height:0px;overflow:visible}#pxzcont *{font-family:Arial,Helvetica,sans-serif;font-weight:normal;background:transparent}#pxzcont * b{font-weight:bold}#pxzcont * i{font-style:italic}#pxzcont * u{font-decoration:underline}#pxzcont div,#pxzcont span,#pxzcont img,#pxzcont td,#pxzcont p,#pxzcont iframe{border:0px none;margin:0px;padding:0px;line-height:normal;text-align:left;font-size:1em}#pxzcont input,#pxzcont textarea{box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;-o-box-sizing:content-box}#pxzcont div,#pxzcont img,#pxzcont iframe{display:block;box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;-o-box-sizing:content-box;margin:0;padding:0;width:auto;height:auto;max-width:none;max-height:none;top:auto;bottom:auto;right:auto;left:auto}#pxzcont span{display:inline}#pxzcont div{text-align:left;position:relative;overflow:visible;z-index:1}#pxzcont img{position:static}#pxzcont a,#pxzcont a:link,#pxzcont a:hover,#pxzcont a:visited,#pxzcont a:active{font-weight:normal;background:none;font-size:12px;line-height:normal}#pxzcont .pxz-clear{clear:both}#pxzcont .pxz-noselect{-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-o-user-select:none;user-select:none}</style><div id="pxzcont" pxz:pub="11c0daac340" class="pxz-home-top-left pxz-home-top pxz-home-left" style="top: 0px; left: 0px; z-index: 9999;"></div></body></html>

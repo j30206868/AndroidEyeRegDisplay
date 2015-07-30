@@ -1,0 +1,198 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 27.08.2014 16:03:39
+
+newmtl HD_Ironman_darksilver
+	Ns 60.00
+	Ni 1.50
+	d 1.00
+	Tr 0.00
+	Tf 1.00 1.00 1.00 
+	illum 2
+	Ka 0.00 0.00 0.00
+	Kd 0.80 0.80 0.80
+	Ks 0.20 0.20 0.20
+	Ke 0.00 0.00 0.00
+
+newmtl Iron_man_leg_red
+	Ns 43.00
+	Ni 1.50
+	d 1.00
+	Tr 0.00
+	Tf 1.00 1.00 1.00 
+	illum 2
+	Ka 0.00 0.00 0.00
+	Kd 0.40 0.05 0.05
+	Ks 0.50 0.50 0.50
+	Ke 0.00 0.00 0.00
+
+newmtl Iron_man_leg_gold
+	Ns 43.22
+	Ni 1.50
+	d 1.00
+	Tr 0.00
+	Tf 1.00 1.00 1.00 
+	illum 2
+	Ka 0.00 0.00 0.00
+	Kd 0.60 0.48 0.14
+	Ks 0.50 0.50 0.50
+	Ke 0.00 0.00 0.00
+
+newmtl HD_Ironman_silver
+	Ns 60.00
+	Ni 1.50
+	d 1.00
+	Tr 0.00
+	Tf 1.00 1.00 1.00 
+	illum 2
+	Ka 0.00 0.00 0.00
+	Kd 0.80 0.80 0.80
+	Ks 0.20 0.20 0.20
+	Ke 0.00 0.00 0.00
+
+newmtl lambert1
+	Ns 10.00
+	Ni 1.50
+	d 1.00
+	Tr 0.00
+	Tf 1.00 1.00 1.00 
+	illum 2
+	Ka 0.40 0.40 0.40
+	Kd 0.40 0.40 0.40
+	Ks 0.48 0.48 0.48
+	Ke 0.00 0.00 0.00
+
+newmtl HD_Ironman_yellow
+	Ns 60.00
+	Ni 1.50
+	d 1.00
+	Tr 0.00
+	Tf 1.00 1.00 1.00 
+	illum 2
+	Ka 1.00 1.00 1.00
+	Kd 1.00 1.00 1.00
+	Ks 0.20 0.20 0.20
+	Ke 0.00 0.00 0.00
+
+newmtl HD_Ironman_black
+	Ns 60.00
+	Ni 1.50
+	d 1.00
+	Tr 0.00
+	Tf 1.00 1.00 1.00 
+	illum 2
+	Ka 0.00 0.00 0.00
+	Kd 0.80 0.80 0.80
+	Ks 0.20 0.20 0.20
+	Ke 0.00 0.00 0.00
+
+newmtl 14___Default
+	Ns 10.00
+	Ni 1.50
+	d 1.00
+	Tr 0.00
+	Tf 1.00 1.00 1.00 
+	illum 2
+	Ka 0.00 0.15 0.93
+	Kd 0.00 0.15 0.93
+	Ks 0.00 0.00 0.00
+	Ke 0.00 0.00 0.00
+
+newmtl wire_166202240
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.65 0.79 0.94
+	Kd 0.65 0.79 0.94
+	Ks 0.35 0.35 0.35
+
+newmtl wire_224198087
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.88 0.78 0.34
+	Kd 0.88 0.78 0.34
+	Ks 0.35 0.35 0.35
+
+newmtl wire_008110134
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.03 0.43 0.53
+	Kd 0.03 0.43 0.53
+	Ks 0.35 0.35 0.35
+
+newmtl wire_028028177
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.11 0.11 0.69
+	Kd 0.11 0.11 0.69
+	Ks 0.35 0.35 0.35
+
+newmtl wire_134006006
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.53 0.02 0.02
+	Kd 0.53 0.02 0.02
+	Ks 0.35 0.35 0.35
+
+newmtl wire_108008136
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.42 0.03 0.53
+	Kd 0.42 0.03 0.53
+	Ks 0.35 0.35 0.35
+
+newmtl wire_006134006
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.02 0.53 0.02
+	Kd 0.02 0.53 0.02
+	Ks 0.35 0.35 0.35
+
+newmtl wire_113134006
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.44 0.53 0.02
+	Kd 0.44 0.53 0.02
+	Ks 0.35 0.35 0.35
+
+newmtl wire_174186203
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.68 0.73 0.80
+	Kd 0.68 0.73 0.80
+	Ks 0.35 0.35 0.35
+
+newmtl wire_008008136
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.03 0.03 0.53
+	Kd 0.03 0.03 0.53
+	Ks 0.35 0.35 0.35
